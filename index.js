@@ -6,7 +6,7 @@ var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 var map = require('event-stream').map;
 
-var FILE_DECL = /(.*)\:"(.*)[\?]rev=(.*)[\"]/gi;
+var FILE_DECL = /(.*)"(.*)[\?]rev=(.*)[\"]/gi;
 
 var revPlugin = function revPlugin() {
 
