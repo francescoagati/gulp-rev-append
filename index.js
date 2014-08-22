@@ -6,7 +6,7 @@ var gutil = require('gulp-util');
 var PluginError = gutil.PluginError;
 var map = require('event-stream').map;
 
-var FILE_DECL = /(.*)"(.*)[\?]rev=(.*)[\"]/gi;
+var FILE_DECL = /"(.*)[\?]rev=(.*)[\"]/gi;
 
 var revPlugin = function revPlugin() {
 
@@ -29,6 +29,7 @@ var revPlugin = function revPlugin() {
       groups = FILE_DECL.exec(line);
       if(groups && groups.length > 1) {
         dependencyPath = path.resolve(path.dirname(file.path), groups[1]);
+        console.log(dependencyPath);
         try {
           data = fs.readFileSync(dependencyPath);
           hash = crypto.createHash('md5');
