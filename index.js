@@ -33,7 +33,7 @@ var revPlugin = function revPlugin() {
           data = fs.readFileSync(dependencyPath);
           hash = crypto.createHash('md5');
           hash.update(data.toString(), 'utf8');
-          line = line.replace(groups[2], hash.digest('hex').toString() + "-" +  Date.now().toString());
+          line = line.replace(groups[2], hash.digest('hex'));
         }
         catch(e) {
           // fail silently.
